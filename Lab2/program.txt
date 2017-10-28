@@ -1,0 +1,3 @@
+ana ana ana
+read(a)
+read('a')
