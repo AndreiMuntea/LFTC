@@ -7,7 +7,7 @@ Alphabetul:
 Lexic:
 	a) Special symbols:
 		- operators: + - * / % < <= == > >= !=
-		- separatos: {} () ; space \n \n\r \t
+		- separatos: {} () ; space \n \n\r \t \r
 		- reserved words: read write if else while begin end int char array
 		
 	b) Identifiers:
@@ -55,7 +55,7 @@ Syntax:
 
 
 Tokentype 	code
-    "identifier": 0,
+        "identifier": 0,
     "constant": 1,
     "read": 2,
     "write": 3,
@@ -79,15 +79,16 @@ Tokentype 	code
     "\t": 21,
     "\n\r": 22,
     "\n": 23,
-    "+": 24,
-    "-": 25,
-    "*": 26,
-    "\\": 27,
-    "%": 28,
-    "==": 29,
-    ">=": 30,
-    "<=": 31,
-    "!=": 32,
-    "=": 33,
-    ">": 34,
-    "<": 35
+    "\r": 24,
+    "+": 25,
+    "-": 26,
+    "*": 27,
+    "/": 28,
+    "%": 29,
+    "==": 30,
+    ">=": 31,
+    "<=": 32,
+    "!=": 33,
+    "=": 34,
+    ">": 35,
+    "<": 36
