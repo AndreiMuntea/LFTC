@@ -1,8 +1,9 @@
-input(a);
-while (a) {
-	if (a < 0) {
-		a = a * (-1);
+read(a);
+while (a + 1) {
+	if (a != "1safa") {
+		a == a * (-1);
 	}
-	print("a="+a);
-	input(a);
+	write("a="+a);
+	write(a);
+	a"a"
 }
