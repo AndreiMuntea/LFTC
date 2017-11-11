@@ -1,0 +1,18 @@
+{
+    "non_terminals": ["A", "B", "C", "D", "E"],
+
+    "terminals": ["a", "b", "c"],
+
+    "empty_string": "epsilon",
+
+    "start_symbol": "A",
+
+    "productions":
+    {
+        "A" : [["b", "B"], ["a","E"], ["epsilon"]],
+        "B" : [["b", "B"], ["c","C"]],
+        "C" : [["c"], ["a", "D"]],
+        "D" : [["a"]],
+        "E" : [["b"]]
+    }
+}
