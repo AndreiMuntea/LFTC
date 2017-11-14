@@ -30,7 +30,6 @@ class Converter:
 
         return Grammar(terminals, non_terminals, start_symbol, empty_string, productions)
 
-
     @staticmethod
     def grammar_to_automata(grammar):
         states = copy.deepcopy(grammar.non_terminals)
@@ -71,7 +70,7 @@ class Converter:
 
     @staticmethod
     def _create_final_state(states):
-        s = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
+        s = "FINAL_STATE"
         while s in states:
             s = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
         return s

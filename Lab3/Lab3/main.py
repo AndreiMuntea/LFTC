@@ -35,16 +35,29 @@ def construct_automata(json_data):
         print(ex)
 
 
-if __name__ == "__main__":
-    #a = load_data("grammar.json")
-    #grammar = construct_grammar(a)
+def load_grammar():
+    a = load_data("grammar.json")
+    grammar = construct_grammar(a)
 
-    #automata = Converter.grammar_to_automata(grammar)
+    automata = Converter.grammar_to_automata(grammar)
+
+    return (grammar, automata)
+
+
+def load_automata():
 
     a = load_data("finite_automata.json")
     automata = construct_automata(a)
 
     grammar = Converter.automata_to_grammar(automata)
+
+    return (grammar, automata)
+
+
+if __name__ == "__main__":
+    #(grammar, automata) = load_grammar()
+
+    (grammar, automata) = load_automata()
 
     print(grammar)
     print(automata)

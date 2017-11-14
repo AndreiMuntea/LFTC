@@ -1,18 +1,16 @@
 {
-    "non_terminals": ["A", "B", "C", "D", "E"],
+    "non_terminals": ["q1", "q2", "q3"],
 
-    "terminals": ["a", "b", "c"],
+    "terminals": ["0", "1"],
 
     "empty_string": "epsilon",
 
-    "start_symbol": "A",
+    "start_symbol": "q1",
 
     "productions":
     {
-        "A" : [["b", "B"], ["a","E"], ["epsilon"]],
-        "B" : [["b", "B"], ["c","C"]],
-        "C" : [["c"], ["a", "D"]],
-        "D" : [["a"]],
-        "E" : [["b"]]
+        "q1" : [["1","q2"], ["1", "q3"], ["epsilon"], ["0"], ["1"]],
+        "q2" : [["0", "q2"], ["1","q3"], ["1"]],
+        "q3" : [["0", "q3"], ["0"]]
     }
 }

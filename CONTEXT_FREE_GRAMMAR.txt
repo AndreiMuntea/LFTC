@@ -1,0 +1,98 @@
+terminale: 
+{ 
+	"_", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", 
+	"+", "-", "*", "/", "%", "<", "<=", "==" ">", ">=", "!=",
+	"{", "}", "(", ")", ";", " ", "\n", "\n\r", "\t", "\r",
+	"read", "write", "if", "else", "while", "begin", "end", "int", "char", "array",
+	"a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", 
+	"F", "g", "G", "h", "H", "i", "I", "j", "J", "k", "K", 
+	"l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", 
+	"Q", "r", "R", "s", "S", "t", "T", "u", "U", "v", "V", 
+	"w", "W", "x", "X", "y", "Y", "z", "Z", epsilon
+}
+
+non-terminale: 
+{
+	non_zero_digit,
+	zero_digit,
+	digit,
+	alpha_character,
+	underscore,
+	nondigit,
+	identifier_aux,
+	identifier,
+	non_zero_natural_number,
+	natural_number,
+	number,
+	character,
+	aux_decl,
+	aux_statement,
+	program,
+	declaration,
+	statement,
+	input,
+	output,
+	assignment,
+	conditional,
+	loop,
+	expression,
+	condition,
+	variable_declaration,
+	array_declaration,
+	type,
+	expr_operator,
+	expr_member,
+	expr_m_var,
+	relation,
+	variable
+}
+
+simbol de start: program
+
+productii:
+
+program  -> "begin" aux_decl aux_statement "end"
+
+aux_decl -> epsilon | aux_decl declaration
+aux_statement -> epsilon | aux_statement declaration
+
+declaration -> variable_declaration | array_declaration
+statement -> assignment | input | output | conditional | loop
+
+input -> "read" "(" variable ")" ";"
+output -> "write" "(" expr_member> ")" ";"
+	
+assignment> -> variable "=" expression ";"
+	
+conditional -> "if" "(" condition ")" "{" aux_statement "}" |  "if" "(" condition ")" "{" aux_statement "}" "else" "{" aux_statement "}" ";"
+loop -> "while" "(" condition ")" "{" aux_statement "}" ";"
+
+expression -> expr_m_var | expression expr_operator expr_m_var
+	
+condition -> expression relation expression
+	
+variable_declaration -> type identifier ";"
+array_declaration -> "array" type identifier "[" non_zero_natural_number "] ";"
+	
+type -> "int" | "char"	
+expr_operator -> "+" | "-" | "*" | "/" |	"%"
+expr_member -> variable | number | character
+expr_m_var -> "(" expr_member expr_operator expr_member ")"
+relation -> "<" | "<=" | ">" | ">=" | "==" | "!="
+variable -> identifier | identifier "[" natural_number "]"
+
+
+non_zero_digit -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+zero_digit -> "0"
+digit -> zero_digit | non_zero_digit
+alpha_character -> "a" | "A" | "b" | "B" | "c" | "C" | "d" | "D" | "e" | "E" | "f" | "F" | "g" | "G" | "h" | "H" | "i" | "I" | "j" | "J" | "k" | "K" | "l" | "L" | "m" | "M" | "n" | "N" | "o" | "O" | "p" | "P" | "q" | "Q" | "r" | "R" | "s" | "S" | "t" | "T" | "u" | "U" | "v" | "V" | "w" | "W" | "x" | "X" | "y" | "Y" | "z" | "Z"
+underscore -> "_"
+nondigit -> underscore | alpha_character
+identifier_aux -> digit | nondigit | underscore
+identifier -> nondigit | identifier identifier_aux
+
+
+non_zero_natural_number -> non_zero_digit | non_zero_natural_number digit
+natural_number -> non_zero_natural_number | zero_digit
+number -> "-" non_zero_natural_number | non_zero_natural_number | zero_digit
+character -> "'" nondigit "'" | "'"digit "'"

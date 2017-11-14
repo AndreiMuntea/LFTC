@@ -1,0 +1,101 @@
+Alphabetul:
+	- Uppercase and lowercase letters of the English alphabet (A-Z and a-z);
+	- Underline character '_';
+	- Decimal digits(0-9);
+
+
+Lexic:
+	a) Special symbols:
+		- operators: + - * / % < <= == > >= !=
+		- separatos: {} () ; space \n \n\r \t \r
+		- reserved words: read write if else while begin end int char array
+		
+	b) Identifiers:
+	
+		<non_zero_digit> ::= "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+		<zero_digit> ::= "0"
+		<digit> ::= <zero_digit> | <non_zero_digit>
+		<alpha_character> ::= "a" | "A" | "b" | "B" | "c" | "C" | "d" | "D" | "e" | "E" | "f" | "F" | "g" | "G" | "h" | "H" | "i" | "I" | "j" | "J" | "k" | "K" | "l" | "L" | "m" | "M" | "n" | "N" | "o" | "O" | "p" | "P" | "q" | "Q" | "r" | "R" | "s" | "S" | "t" | "T" | "u" | "U" | "v" | "V" | "w" | "W" | "x" | "X" | "y" | "Y" | "z" | "Z"
+		<underscore> ::= "_"
+		<nondigit> ::= <underscore> | <alpha_character>
+		<identifier_aux> ::= <digit> | <nondigit> | <underscore>
+		<identifier> ::= <nondigit> | <identifier> <identifier_aux>
+
+	c) Constante:
+	
+		<non_zero_natural_number> ::= <non_zero_digit> | <non_zero_natural_number> <digit>
+		<natural_number> ::= <non_zero_natural_number> | <zero_digit>
+		<number> ::= "-" <non_zero_natural_number> | <non_zero_natural_number> | <zero_digit>
+		<character ::= "'" <nondigit> "'" | "'"<digit> "'"
+
+Syntax:
+	<aux_decl> ::= epsilon | <aux_decl> <declaration>
+	<aux_statement> ::= epsilon | <aux_statement> <declaration>
+
+	<program> ::= "begin" <aux_decl> <aux_statement> "end"
+	<declaration> ::= <variable_declaration> | <array_declaration>
+	<statement> ::= <assignment> | <input> | <output> | <conditional> | <loop>
+
+	<input> ::= "read" "(" <variable> ")" ";"
+	<output> ::= "write" "(" <expr_member> ")" ";"
+	
+	<assignment> ::= <variable> "=" <expression> ";"
+	
+	<conditional> ::= "if" "(" <condition> ")" "{" <aux_statement> "}" |  "if" "(" <condition> ")" "{" <aux_statement> "}" "else" "{" <aux_statement> "}" ";"
+	<loop> ::= "while" "(" <condition> ")" "{" <aux_statement> "}" ";"
+	
+	<expression> ::= <expr_m_var> | <expression> <expr_operator> <expr_m_var>
+	
+	<condition> ::= <expression> <relation> <expression>
+	
+	<variable_declaration> ::= <type> <identifier> ";"
+	<array_declaration> ::= "array" <type> <identifier "[" <non_zero_natural_number> "] ";"
+	
+	<type> ::= "int" | "char"	
+	<expr_operator> ::= "+" | "-" | "*" | "/" |	"%"
+	<expr_member> ::= <variable> | <number> | <character>
+	<expr_m_var> ::= "(" <expr_member> <expr_operator> <expr_member> ")"
+	<relation> ::= "<" | "<=" | ">" | ">=" | "==" | "!="
+	<variable> ::= <identifier> | <identifier> "[" <natural_number> "]"
+
+
+	
+	
+Tokentype 	code
+    "identifier": 0,
+    "constant": 1,
+    "read": 2,
+    "write": 3,
+    "if": 4,
+    "else": 5,
+    "while": 6,
+    "begin": 7,
+    "end": 8,
+    "int": 9,
+    "char": 10,
+    "array": 11,
+    "string": 12,
+    "{": 13,
+    "}": 14,
+    "(": 15,
+    ")": 16,
+    ";": 17,
+    " ": 18,
+    "[": 19,
+    "]": 20,
+    "\t": 21,
+    "\n\r": 22,
+    "\n": 23,
+    "\r": 24,
+    "+": 25,
+    "-": 26,
+    "*": 27,
+    "/": 28,
+    "%": 29,
+    "==": 30,
+    ">=": 31,
+    "<=": 32,
+    "!=": 33,
+    "=": 34,
+    ">": 35,
+    "<": 36

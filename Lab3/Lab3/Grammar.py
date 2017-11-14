@@ -66,7 +66,7 @@ class Grammar:
                 if len(p) is 2:
                     if p[0] not in terminals or p[1] not in non_terminals:
                         raise ValueError("Invalid production {0}".format(k))
-                    if contains_empty is 1 and p[1] is start_symbol:
+                    if contains_empty is 1 and p[1] == start_symbol:
                         raise ValueError("Start symbol expands into empty string. Can't be a right symbol")
 
                 for symbol in p:
@@ -108,7 +108,7 @@ class Grammar:
             if len(p) is 2:
                 if p[0] not in terminals or p[1] not in non_terminals :
                     raise ValueError("Invalid production {0}".format(start_symbol))
-                if contains_empty is 1 and p[1] is start_symbol:
+                if contains_empty is 1 and p[1] == start_symbol:
                     raise ValueError("Start symbol expands into empty string. Can't be a right symbol")
 
             for symbol in p:
