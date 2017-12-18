@@ -1,0 +1,71 @@
+{
+  "codes":
+  {
+    "identifier": 0,
+    "constant": 1,
+    "read": 2,
+    "write": 3,
+    "if": 4,
+    "(": 5,
+    ")": 6,
+    "{": 7,
+    "}": 8,
+    "==": 9,
+    ">": 10,
+    ">=": 11,
+    "<": 12,
+    "<=": 13,
+    "=": 14,
+    "+": 15,
+    "-": 16,
+    "*": 17,
+    "/": 18,
+    "!=": 19,
+    "%": 20,
+
+    " ": 18,
+    "\t": 21,
+    "\n\r": 22,
+    "\n": 23,
+    "\r": 24
+  },
+
+  "rules":
+  {
+    "spaces":
+    {
+      "values": [" ", "\n\r", "\t", "\n", "\r"],
+      "followup": []
+    },
+
+    "separator":
+    {
+      "values": ["\\{", "\\}", "\\(", "\\)", ";", "\\[", "\\]"],
+      "followup": []
+    },
+
+    "operator":
+    {
+      "values": ["\\+", "-", "\\*", "/", "%", "==", ">=", "<=", "!=", "=", ">", "<"],
+      "followup": []
+    },
+
+    "keyword":
+    {
+      "values": ["read", "write", "if", "else", "while", "begin", "end", "int", "char", "array", "string"],
+      "followup": ["separator", "spaces"]
+    },
+
+    "constant":
+    {
+      "values": ["([-,\\+]{0,1}[1-9][0-9]*)", "('.')", "(\".+\")", "(0)"],
+      "followup": ["separator", "operator", "spaces"]
+    },
+
+    "identifier":
+    {
+      "values": ["([a-zA-Z][a-zA-Z0-9_]{0,249})"],
+      "followup": ["separator", "operator", "spaces"]
+    }
+  }
+}

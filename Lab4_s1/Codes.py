@@ -1,0 +1,21 @@
+CODE_IDENTIFIER = 0
+CODE_CONSTANT = 1
+CODE_READ = 2
+CODE_WRITE = 3
+CODE_IF = 4
+CODE_OPEN_BRACKET = 5                   # (
+CODE_CLOSED_BRACKET = 6                 # )
+CODE_OPEN_CURLY_BRACKET = 7             # {
+CODE_CLOSED_CURLY_BRACKET = 8           # }
+CODE_OPERATOR_EQUAL = 9                 # ==
+CODE_OPERATOR_GREATER = 10              # >
+CODE_OPERATOR_GREATER_OR_EQUAL = 11     # >=
+CODE_OPERATOR_SMALLER = 12              # <
+CODE_OPERATOR_SMALLER_OR_EQUAL = 13     # <=
+CODE_OPERATOR_ASSIGN = 14               # =
+CODE_OPERATOR_ADDITION = 15             # +
+CODE_OPERATOR_SUBTRACTION = 16          # -
+CODE_OPERATOR_MULTIPLICATION = 17       # *
+CODE_OPERATOR_DIVISION = 18             # /
+CODE_OPERATOR_DIFFERENT = 19            # !=
+CODE_OPERATOR_MOD = 20                  # %

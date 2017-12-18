@@ -1,0 +1,13 @@
+BEGIN
+
+INT a;
+INT b;
+CHAR c;
+
+READ(a);
+
+WRITE(4);
+WRITE(c);
+
+
+END
