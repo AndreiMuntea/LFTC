@@ -9,5 +9,18 @@ READ(a);
 WRITE(4);
 WRITE(c);
 
+a = (b + 4);
+
+IF (a >= 5){
+    WRITE(6);
+    IF (a != 3){
+        READ(b);
+    }
+}
+
+WHILE(a != 8){
+    a = (4 * 9) + 3;
+}
+
 
 END

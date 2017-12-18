@@ -82,11 +82,12 @@ conditional:
 	IF OPENED_ROUND_BRACKET condition CLOSED_ROUND_BRACKET OPENED_CURLY_BRACKET aux_statement CLOSED_CURLY_BRACKET  { cout << "CONDITIONAL STATEMENT ENCOUNTERED" << endl;}
 	;
 assignment:
-	IDENTIFIER ASSIGN IDENTIFIER SEMICOLON		{ cout << "ASSIGNMENT ENCOUNTERED" << endl;}
+	IDENTIFIER ASSIGN expression SEMICOLON		{ cout << "ASSIGNMENT ENCOUNTERED" << endl;}
 	;
 
 expression:
-	expr_m_var | expression expr_operator expr_m_var
+	expr_m_var 
+	| expression expr_operator expr_m_var
 	;
 
 condition :
@@ -94,7 +95,7 @@ condition :
 	;
 
 loop: 
-	WHILE OPENED_ROUND_BRACKET condition CLOSED_ROUND_BRACKET OPENED_CURLY_BRACKET aux_statement CLOSED_CURLY_BRACKET SEMICOLON		{ cout << "LOOP ENCOUNTERED" << endl;}
+	WHILE OPENED_ROUND_BRACKET condition CLOSED_ROUND_BRACKET OPENED_CURLY_BRACKET aux_statement CLOSED_CURLY_BRACKET		{ cout << "LOOP ENCOUNTERED" << endl;}
 	;
 
 input:
